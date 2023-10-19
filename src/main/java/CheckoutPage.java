@@ -19,6 +19,9 @@ public class CheckoutPage extends  BasePage{
     @FindBy(id = "postcode")
     private WebElement postCodeCart;
 
+    @FindBy(id = "region_id")
+    private WebElement regionIDCart;
+
     public void getFoodMenu(){
         foodMenu.click();
     }
@@ -33,5 +36,9 @@ public class CheckoutPage extends  BasePage{
 
     public void getPostCodeCart(){
         postCodeCart.sendKeys("12345");
+    }
+
+    public void getRegionIDCart(){
+        regionIDCart.click();
     }
 }
