@@ -27,11 +27,11 @@ import java.util.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class CheckoutTest extends Hooks{
+public class CheckoutTest extends Hooks {
     private CheckoutPage checkoutPage;
 
     @Before
-    public void setupPageObject(){
+    public void setupPageObject() {
         checkoutPage = new CheckoutPage(driver);
     }
 
@@ -39,8 +39,9 @@ public class CheckoutTest extends Hooks{
     public void checkout() throws InterruptedException {
         checkoutPage.getFoodMenu();
         checkoutPage.getAddCart();
- //       driver.findElement(By.cssSelector(".btn-cart:nth-child(1) > span > span")).click();
-        driver.findElement(By.id("city")).sendKeys("alabama");
+        checkoutPage.getCityCart();
+        //       driver.findElement(By.cssSelector(".btn-cart:nth-child(1) > span > span")).click();
+        // driver.findElement(By.id("city")).sendKeys("alabama");
         driver.findElement(By.id("postcode")).sendKeys("12345");
         driver.findElement(By.id("region_id")).click();
         {
@@ -76,7 +77,6 @@ public class CheckoutTest extends Hooks{
         driver.findElement(By.cssSelector("#payment-buttons-container span > span")).click();
         Thread.sleep(2500);
         driver.findElement(By.cssSelector(".btn-checkout")).click();
-
 
 
     }

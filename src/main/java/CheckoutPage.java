@@ -12,11 +12,18 @@ public class CheckoutPage extends  BasePage{
 
     @FindBy(css = ".btn-cart:nth-child(1) > span > span")
     private WebElement addToCart;
+
+    @FindBy(id = "city")
+    private WebElement cityCart;
     public void getFoodMenu(){
         foodMenu.click();
     }
 
     public void getAddCart(){
         addToCart.click();
+    }
+
+    public void getCityCart(){
+        cityCart.sendKeys("alabama");
     }
 }
