@@ -10,7 +10,7 @@ public class CheckoutPage extends  BasePage{
     @FindBy(xpath = "//a[text()='Food']")
     private WebElement foodMenu;
 
-    @FindBy(xpath = "//")
+    @FindBy(css = ".btn-cart:nth-child(1) > span > span")
     private WebElement addToCart;
     public void getFoodMenu(){
         foodMenu.click();
