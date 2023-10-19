@@ -15,6 +15,10 @@ public class CheckoutPage extends  BasePage{
 
     @FindBy(id = "city")
     private WebElement cityCart;
+
+    @FindBy(id = "postcode")
+    private WebElement postCodeCart;
+
     public void getFoodMenu(){
         foodMenu.click();
     }
@@ -25,5 +29,9 @@ public class CheckoutPage extends  BasePage{
 
     public void getCityCart(){
         cityCart.sendKeys("alabama");
+    }
+
+    public void getPostCodeCart(){
+        postCodeCart.sendKeys("12345");
     }
 }
