@@ -10,8 +10,13 @@ public class CheckoutPage extends  BasePage{
     @FindBy(xpath = "//a[text()='Food']")
     private WebElement foodMenu;
 
+    @FindBy(xpath = "//")
+    private WebElement addToCart;
     public void getFoodMenu(){
         foodMenu.click();
     }
 
+    public void getAddCart(){
+        addToCart.click();
+    }
 }
