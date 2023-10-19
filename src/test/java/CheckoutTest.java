@@ -41,9 +41,11 @@ public class CheckoutTest extends Hooks {
         checkoutPage.getAddCart();
         checkoutPage.getCityCart();
         checkoutPage.getPostCodeCart();
-        //       driver.findElement(By.cssSelector(".btn-cart:nth-child(1) > span > span")).click();
-        // driver.findElement(By.id("city")).sendKeys("alabama");
-        //driver.findElement(By.id("postcode")).sendKeys("12345");
+/*
+               driver.findElement(By.cssSelector(".btn-cart:nth-child(1) > span > span")).click();
+         driver.findElement(By.id("city")).sendKeys("alabama");
+        driver.findElement(By.id("postcode")).sendKeys("12345");
+*/
         driver.findElement(By.id("region_id")).click();
         {
             WebElement dropdown = driver.findElement(By.id("region_id"));
