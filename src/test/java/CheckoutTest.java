@@ -1,7 +1,7 @@
 
 import org.junit.Test;
 import org.junit.Before;
-import org.openqa.selenium.By;
+
 
 
 public class CheckoutTest extends Hooks {
