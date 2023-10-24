@@ -35,10 +35,11 @@ public class CheckoutTest extends Hooks {
         checkoutPage.setPostcode("12345");
         checkoutPage.setPhoneNumber("0777777777");
 
-        checkoutPage.clickWhenReady(By.cssSelector("#billing-buttons-container button"));
-        checkoutPage.clickWhenReady(By.cssSelector("#shipping-method-buttons-container button"));
-        checkoutPage.clickWhenReady(By.cssSelector("#payment-buttons-container button"));
-        checkoutPage.clickWhenReady(By.cssSelector(".btn-checkout"));
+        checkoutPage.clickWhenReady(checkoutPage.billingContinue);
+        checkoutPage.clickWhenReady(checkoutPage.shippingContinue);
+        checkoutPage.clickWhenReady(checkoutPage.paymentContinue);
+        checkoutPage.clickWhenReady(checkoutPage.checkoutBtn);
+
 
 
     }

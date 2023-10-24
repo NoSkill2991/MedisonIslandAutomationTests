@@ -66,6 +66,16 @@ public class CheckoutPage extends  BasePage{
     @FindBy(id = "billing:telephone")
     private WebElement phoneNumber;
 
+    @FindBy(css = "#billing-buttons-container button")
+    public WebElement billingContinue;
+
+    @FindBy(css = "#shipping-method-buttons-container button")
+    public WebElement shippingContinue;
+    @FindBy(css = "#payment-buttons-container button")
+    public WebElement paymentContinue;
+    @FindBy(css = ".btn-checkout")
+    public WebElement checkoutBtn;
+
     public void getFoodMenu(){
         foodMenu.click();
     }
@@ -147,7 +157,7 @@ public class CheckoutPage extends  BasePage{
         this.phoneNumber.sendKeys(phoneNumber);
     }
 
-    public void clickWhenReady(By locator){
+    public void clickWhenReady(WebElement locator){
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
         element.click();
     }
