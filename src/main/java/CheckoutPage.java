@@ -1,12 +1,18 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-
+import org.openqa.selenium.support.ui.WebDriverWait;
 public class CheckoutPage extends  BasePage{
+
+    private WebDriverWait wait;
     CheckoutPage(WebDriver driver) {
         super(driver);
+        wait = new WebDriverWait(driver,30);
     }
+
 
     @FindBy(xpath = "//a[text()='Food']")
     private WebElement foodMenu;
@@ -140,4 +146,12 @@ public class CheckoutPage extends  BasePage{
     public void setPhoneNumber(String phoneNumber){
         this.phoneNumber.sendKeys(phoneNumber);
     }
+
+    public void clickWhenReady(By locator){
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
+        element.click();
+    }
+
+
+
 }

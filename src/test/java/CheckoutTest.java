@@ -2,7 +2,6 @@
 import org.junit.Test;
 import org.junit.Before;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 
 public class CheckoutTest extends Hooks {
@@ -18,6 +17,7 @@ public class CheckoutTest extends Hooks {
         checkoutPage.getFoodMenu();
         checkoutPage.getAddCart();
         checkoutPage.getCityCart();
+
         checkoutPage.getPostCodeCart();
         checkoutPage.clickCartRegionDropdown();
         checkoutPage.selectCartRegion("Alabama");
@@ -35,14 +35,10 @@ public class CheckoutTest extends Hooks {
         checkoutPage.setPostcode("12345");
         checkoutPage.setPhoneNumber("0777777777");
 
-
-        driver.findElement(By.cssSelector("#billing-buttons-container span > span")).click();
-        Thread.sleep(2500);
-        driver.findElement(By.cssSelector("#shipping-method-buttons-container span > span")).click();
-        Thread.sleep(2500);
-        driver.findElement(By.cssSelector("#payment-buttons-container span > span")).click();
-        Thread.sleep(2500);
-        driver.findElement(By.cssSelector(".btn-checkout")).click();
+        checkoutPage.clickWhenReady(By.cssSelector("#billing-buttons-container button"));
+        checkoutPage.clickWhenReady(By.cssSelector("#shipping-method-buttons-container button"));
+        checkoutPage.clickWhenReady(By.cssSelector("#payment-buttons-container button"));
+        checkoutPage.clickWhenReady(By.cssSelector(".btn-checkout"));
 
 
     }
