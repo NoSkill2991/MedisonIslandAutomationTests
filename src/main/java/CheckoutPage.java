@@ -1,6 +1,7 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 public class CheckoutPage extends  BasePage{
     CheckoutPage(WebDriver driver) {
@@ -10,7 +11,7 @@ public class CheckoutPage extends  BasePage{
     @FindBy(xpath = "//a[text()='Food']")
     private WebElement foodMenu;
 
-    @FindBy(css = ".btn-cart:nth-child(1) > span > span")
+    @FindBy(css = ".product-info button")
     private WebElement addToCart;
 
     @FindBy(id = "city")
@@ -20,7 +21,44 @@ public class CheckoutPage extends  BasePage{
     private WebElement postCodeCart;
 
     @FindBy(id = "region_id")
-    private WebElement regionIDCart;
+    private WebElement cartRegionDropdown;
+
+    @FindBy(css = ".method-checkout-cart-methods-onepage-bottom button")
+    private WebElement checkoutButton;
+    @FindBy(id = "onepage-guest-register-button")
+    private WebElement registerButton;
+
+    @FindBy(id = "billing:firstname")
+    private WebElement firstName;
+
+    @FindBy(id = "billing:middlename")
+    private WebElement middleName;
+
+    @FindBy(id = "billing:lastname")
+    private WebElement lastName;
+    @FindBy(id = "billing:company")
+    private WebElement companyName;
+
+    @FindBy(id = "billing:email")
+    private WebElement email;
+
+    @FindBy(id = "billing:street1")
+    private WebElement address1;
+
+    @FindBy(id = "billing:street2")
+    private WebElement address2;
+
+    @FindBy(id = "billing:city")
+    private WebElement cityAddress;
+
+    @FindBy(id = "billing:region_id")
+    private WebElement regionDropdown;
+
+    @FindBy(id = "billing:postcode")
+    private WebElement postcode;
+
+    @FindBy(id = "billing:telephone")
+    private WebElement phoneNumber;
 
     public void getFoodMenu(){
         foodMenu.click();
@@ -38,7 +76,68 @@ public class CheckoutPage extends  BasePage{
         postCodeCart.sendKeys("12345");
     }
 
-    public void getRegionIDCart(){
-        regionIDCart.click();
+    public void clickCartRegionDropdown(){
+        cartRegionDropdown.click();
+    }
+
+
+
+    public void selectCartRegion(String cartRegionName){
+        Select cartRegionSelect = new Select(cartRegionDropdown);
+        cartRegionSelect.selectByVisibleText(cartRegionName);
+    }
+
+
+    public void getCheckoutButton(){
+        checkoutButton.click();
+    }
+
+    public void clickRegisterButton(){
+        registerButton.click();
+    }
+
+    public void setFirstName(String firstName){
+        this.firstName.sendKeys(firstName);
+    }
+    public void setMiddleName(String middleName){
+        this.middleName.sendKeys(middleName);
+    }
+
+    public void setLastName(String lastName){
+        this.lastName.sendKeys(lastName);
+    }
+
+    public void setCompanyName(String companyName){
+        this.companyName.sendKeys(companyName);
+    }
+
+    public void setEmail(String email){
+        this.email.sendKeys(email);
+    }
+
+    public void setAddressOne(String address1){
+        this.address1.sendKeys(address1);
+    }
+
+    public void setAddressTwo(String address2){
+        this.address2.sendKeys(address2);
+    }
+
+
+    public void setCityAddress(String cityAddress){
+        this.cityAddress.sendKeys(cityAddress);
+    }
+
+    public void selectRegion(String regionName){
+        Select regionSelect = new Select(regionDropdown);
+        regionSelect.selectByVisibleText(regionName);
+    }
+
+    public void setPostcode(String postcode){
+        this.postcode.sendKeys(postcode);
+    }
+
+    public void setPhoneNumber(String phoneNumber){
+        this.phoneNumber.sendKeys(phoneNumber);
     }
 }
