@@ -23,11 +23,8 @@ public class CheckoutTest extends Hooks {
         assertEquals("CHECKOUT",checkoutPage.pageTitle.getText());
         checkoutPage.CompleteAllMandatoryFieldsInCheckoutPage();
         checkoutPage.clickAllContinueButtonsOnCheckoutPage();
-
         Thread.sleep(3000);
         assertEquals("YOUR ORDER HAS BEEN RECEIVED.",checkoutPage.pageTitle.getText());
-
-
     }
 
     @Test
