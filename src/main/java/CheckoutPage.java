@@ -169,7 +169,7 @@ public class CheckoutPage extends  BasePage{
         element.click();
     }
 
-    public void completeAndSubmitCart() throws InterruptedException {
+    public void completeAndSubmitCart(){
         getCityCart();
         getPostCodeCart();
         clickCartRegionDropdown();
@@ -198,5 +198,12 @@ public class CheckoutPage extends  BasePage{
         clickWhenReady(shippingContinue);
         clickWhenReady(paymentContinue);
         clickWhenReady(checkoutBtn);
+
+    }
+
+    public void assertTextWhenReady( WebElement locator, String expectedText){
+        wait.until(ExpectedConditions.visibilityOf(locator));
+        wait.until(ExpectedConditions.textToBePresentInElement(locator,expectedText));
+        assertEquals(expectedText,locator.getText());
     }
 }

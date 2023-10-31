@@ -2,6 +2,7 @@
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.Assert.*;
+import org.openqa.selenium.WebElement;
 
 import static org.junit.Assert.assertEquals;
 
@@ -19,12 +20,11 @@ public class CheckoutTest extends Hooks {
         checkoutPage.getFoodMenu();
         checkoutPage.getAddCart();
         checkoutPage.completeAndSubmitCart();
-        Thread.sleep(3000);
-        assertEquals("CHECKOUT",checkoutPage.pageTitle.getText());
+        checkoutPage.assertTextWhenReady(checkoutPage.pageTitle,"CHECKOUT");
         checkoutPage.CompleteAllMandatoryFieldsInCheckoutPage();
         checkoutPage.clickAllContinueButtonsOnCheckoutPage();
-        Thread.sleep(3000);
-        assertEquals("YOUR ORDER HAS BEEN RECEIVED.",checkoutPage.pageTitle.getText());
+        checkoutPage.assertTextWhenReady(checkoutPage.pageTitle,"YOUR ORDER HAS BEEN RECEIVED.");
+
     }
 
     @Test
