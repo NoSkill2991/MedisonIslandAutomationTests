@@ -16,7 +16,7 @@ public class CheckoutTest extends Hooks {
     }
 
     @Test
-    public void checkout() throws InterruptedException {
+    public void checkout() {
         checkoutPage.getFoodMenu();
         checkoutPage.getAddCart();
         checkoutPage.completeAndSubmitCart();
