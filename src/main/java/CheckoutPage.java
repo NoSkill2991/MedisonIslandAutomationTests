@@ -4,6 +4,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 public class CheckoutPage extends  BasePage{
 
     private WebDriverWait wait;
@@ -12,7 +13,7 @@ public class CheckoutPage extends  BasePage{
         wait = new WebDriverWait(driver,30);
     }
 
-
+//Duration.ofSeconds(30)
     @FindBy(xpath = "//a[text()='Food']")
     private WebElement foodMenu;
 
@@ -74,6 +75,10 @@ public class CheckoutPage extends  BasePage{
     public WebElement paymentContinue;
     @FindBy(css = ".btn-checkout")
     public WebElement checkoutBtn;
+
+    @FindBy(xpath = "//div[@class='page-title']")
+    public WebElement pageTitle;
+
 
     public void getFoodMenu(){
         foodMenu.click();

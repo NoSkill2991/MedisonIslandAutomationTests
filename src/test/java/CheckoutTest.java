@@ -1,7 +1,9 @@
 
 import org.junit.Test;
 import org.junit.Before;
+import org.junit.Assert.*;
 
+import static org.junit.Assert.assertEquals;
 
 
 public class CheckoutTest extends Hooks {
@@ -39,7 +41,8 @@ public class CheckoutTest extends Hooks {
         checkoutPage.clickWhenReady(checkoutPage.shippingContinue);
         checkoutPage.clickWhenReady(checkoutPage.paymentContinue);
         checkoutPage.clickWhenReady(checkoutPage.checkoutBtn);
-
+        Thread.sleep(3000);
+        assertEquals("YOUR ORDER HAS BEEN RECEIVED.",checkoutPage.pageTitle.getText());
 
 
     }
