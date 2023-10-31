@@ -5,6 +5,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
+
+import static org.junit.Assert.assertEquals;
+
 public class CheckoutPage extends  BasePage{
 
     private WebDriverWait wait;
@@ -166,6 +169,34 @@ public class CheckoutPage extends  BasePage{
         element.click();
     }
 
+    public void completeAndSubmitCart() throws InterruptedException {
+        getCityCart();
+        getPostCodeCart();
+        clickCartRegionDropdown();
+        selectCartRegion("Alabama");
+        getCheckoutButton();
+        clickRegisterButton();
 
+    }
 
+    public void CompleteAllMandatoryFieldsInCheckoutPage(){
+        setFirstName("Test1");
+        setMiddleName("Test2");
+        setLastName("Test3");
+       setCompanyName("Test5");
+        setEmail("asdf@example.com");
+        setAddressOne("adresa mea");
+        setAddressTwo("adresa mea 2");
+        setCityAddress("Alabama City");
+        selectRegion("Alabama");
+        setPostcode("12345");
+        setPhoneNumber("0777777777");
+    }
+
+    public void clickAllContinueButtonsOnCheckoutPage() {
+        clickWhenReady(billingContinue);
+        clickWhenReady(shippingContinue);
+        clickWhenReady(paymentContinue);
+        clickWhenReady(checkoutBtn);
+    }
 }

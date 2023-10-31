@@ -18,29 +18,12 @@ public class CheckoutTest extends Hooks {
     public void checkout() throws InterruptedException {
         checkoutPage.getFoodMenu();
         checkoutPage.getAddCart();
-        checkoutPage.getCityCart();
+        checkoutPage.completeAndSubmitCart();
+        Thread.sleep(3000);
+        assertEquals("CHECKOUT",checkoutPage.pageTitle.getText());
+        checkoutPage.CompleteAllMandatoryFieldsInCheckoutPage();
+        checkoutPage.clickAllContinueButtonsOnCheckoutPage();
 
-        checkoutPage.getPostCodeCart();
-        checkoutPage.clickCartRegionDropdown();
-        checkoutPage.selectCartRegion("Alabama");
-        checkoutPage.getCheckoutButton();
-        checkoutPage.clickRegisterButton();
-        checkoutPage.setFirstName("Test1");
-        checkoutPage.setMiddleName("Test2");
-        checkoutPage.setLastName("Test3");
-        checkoutPage.setCompanyName("Test5");
-        checkoutPage.setEmail("asdf@example.com");
-        checkoutPage.setAddressOne("adresa mea");
-        checkoutPage.setAddressTwo("adresa mea 2");
-        checkoutPage.setCityAddress("Alabama City");
-        checkoutPage.selectRegion("Alabama");
-        checkoutPage.setPostcode("12345");
-        checkoutPage.setPhoneNumber("0777777777");
-
-        checkoutPage.clickWhenReady(checkoutPage.billingContinue);
-        checkoutPage.clickWhenReady(checkoutPage.shippingContinue);
-        checkoutPage.clickWhenReady(checkoutPage.paymentContinue);
-        checkoutPage.clickWhenReady(checkoutPage.checkoutBtn);
         Thread.sleep(3000);
         assertEquals("YOUR ORDER HAS BEEN RECEIVED.",checkoutPage.pageTitle.getText());
 
