@@ -27,10 +27,6 @@ public class CheckoutTest extends Hooks {
 
     }
 
-    @Test
-    public void checkoutAnotherTest(){
-
-    }
 }
 
 
